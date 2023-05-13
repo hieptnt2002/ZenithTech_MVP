@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/border_order"
+    android:padding="10dp"
+    android:layout_marginBottom="2dp"
+    android:layout_height="70dp"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/img_order"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:scaleType="centerInside"
+        android:padding="5dp"
+        app:srcCompat="@drawable/notification" />
+
+    <LinearLayout
+        android:layout_width="290dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        android:paddingLeft="5dp">
+        <TextView
+            android:id="@+id/textView_NameOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đồng hồ thông minh Huawei Watch GT3 dây Silicone-Đen"
+            android:textColor="#333"
+            android:textSize="13sp"
+          />
+
+        <TextView
+            android:id="@+id/textView_price_product_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="29000000dd"
+            android:textColor="#333"
+            android:textSize="13sp"
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x"
+            android:textColor="#333"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/textView_quantity_pr_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="#333"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+</LinearLayout>

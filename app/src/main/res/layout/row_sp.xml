@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="185dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:elevation="10dp">
+
+    <LinearLayout
+        android:layout_width="185dp"
+        android:layout_height="340dp"
+        android:background="@drawable/border_row_product"
+        android:elevation="5dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_sp"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/txtName_sp"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="Xiaomi Redmi Note 12"
+            android:textColor="#444"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
+
+            <TextView
+                android:id="@+id/txtGia_km"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12.000.000đ"
+                android:textColor="#d70018"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtGia_sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:text="15.000.000đ"
+                android:textColor="#444"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="#f3f4f6"
+            app:cardCornerRadius="10dp">
+
+            <TextView
+                android:id="@+id/txtQuatang"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:padding="5dp"
+                android:textFontWeight="525"
+                android:text="Tặng cap sạc tai nghe và 2000k"
+                android:textColor="#444"
+                android:textSize="11sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_addCart_row"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#d70018"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableStart="@drawable/baseline_add_shopping_cart_24"
+                android:gravity="fill"
+                android:paddingStart="10dp"
+                android:text="Thêm vào giỏ hàng"
+                android:textColor="#fff"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                app:tint="#2220EDED" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+        android:layout_gravity="top|right"
+        android:src="@drawable/icon_new" />
+
+    <ImageView
+        android:id="@+id/img_sale"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:scaleType="centerCrop"
+        android:layout_gravity="top|left"
+        android:src="@drawable/btn_arraw1"
+        android:layout_marginTop="-5dp"/>
+    <TextView
+        android:id="@+id/textView_sale"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:text="-50%"
+        android:paddingBottom="5dp"
+        android:textColor="#ffff"
+        android:textStyle="bold"
+        android:textSize="11sp"
+        android:gravity="center"
+        android:layout_gravity="top|left"
+         />
+</FrameLayout>

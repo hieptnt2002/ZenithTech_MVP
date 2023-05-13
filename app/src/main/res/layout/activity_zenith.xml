@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/header_draw"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ZenithActivity"
+    tools:openDrawer="start">
+
+    <RelativeLayout
+        android:id="@+id/layout_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="#c31d1d"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            >
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/header_toolbar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navigationIcon="@drawable/icon_toobar"
+                app:titleTextColor="#ffff" />
+
+            <ImageView
+                android:id="@+id/img_logo"
+                android:layout_width="160dp"
+                android:layout_height="60dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/logo_home"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/header_toolbar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <LinearLayout
+                android:id="@+id/linear_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical"
+                android:paddingEnd="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:id="@+id/frameLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imgView_cart"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/img_cart" />
+
+                    <TextView
+                        android:id="@+id/num_cart"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="top|left"
+                        android:background="@drawable/num_cart"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="#333"
+                        android:textSize="11sp"
+
+                        />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Giỏ hàng"
+                    android:textColor="#ffff"
+                    android:textSize="13dp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/header"
+            android:layout_marginBottom="60dp" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+
+            android:layout_alignParentBottom="true">
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bottomappbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="0dp"
+                app:fabCradleMargin="10dp"
+                app:fabCradleRoundedCornerRadius="50dp"
+                app:fabCradleVerticalOffset="0dp">
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottom_nav"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#f6f6f6"
+                    app:itemIconSize="29dp"
+                    app:itemIconTint="@color/color_nav"
+                    app:itemTextAppearance="@style/Navigation"
+                    app:itemTextColor="@color/color_nav"
+                    app:menu="@menu/menu_nav" />
+            </com.google.android.material.bottomappbar.BottomAppBar>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/button_bottomCart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:elevation="3dp"
+                android:src="@drawable/img_cart"
+                app:backgroundTint="@color/purple"
+                app:layout_anchor="@id/bottomappbar"
+                app:maxImageSize="30dp"
+                app:tint="#ffffff" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/layout_header_nav"
+        app:itemIconPadding="10dp"
+        app:itemIconSize="38dp"
+        app:itemIconTint="@color/color_nav"
+        app:itemTextAppearance="@style/Navigation"
+        app:itemTextColor="@color/color_nav"
+        app:itemVerticalPadding="10dp"
+        app:menu="@menu/menu_nav">
+
+
+            <TextView
+                android:id="@+id/textView_logout"
+                android:layout_width="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_height="60dp"
+                android:drawableStart="@drawable/baseline_exit_to_app_24"
+                android:drawablePadding="15dp"
+               android:gravity="center"
+                android:paddingStart="10dp"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/purple_700"
+                android:text="Log out"/>
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

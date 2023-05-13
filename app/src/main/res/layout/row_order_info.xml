@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_row_product"
+    android:layout_marginBottom="5dp"
+    android:padding="20dp">
+    <ImageView
+
+        android:id="@+id/imgorder.row"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="5dp"
+        android:background="@drawable/border_row_product"
+        app:srcCompat="@drawable/video_call" />
+
+    <TextView
+        android:id="@+id/textViewName_row"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="iPhone 13 Pro Max 256GB (Chính Hãng VN/A) mới fullbox nguyên seal
+"
+        android:textSize="16dp"
+        android:layout_marginStart="5dp"
+        android:textStyle="bold"
+        android:textColor="#0e2431"
+        app:layout_constraintStart_toEndOf="@+id/imgorder.row"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/imgorder.row"
+        app:layout_constraintTop_toBottomOf="@+id/textViewName_row">
+
+        <TextView
+            android:id="@+id/textView.price.row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#d70018"
+            android:textSize="16dp"
+            android:text="14.490.000đ"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView.quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Số lượng: 1"
+        android:textAlignment="center"
+        android:textColor="#333"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgorder.row"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+
+    <TextView
+        android:id="@+id/textView.bought"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đã mua"
+        android:textColor="#333"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/imgorder.row"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgorder.row" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

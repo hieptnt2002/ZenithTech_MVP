@@ -14,9 +14,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.mobileapp.R;
-import com.example.mobileapp.constract.SignUpConstract;
-import com.example.mobileapp.model.Account;
-import com.example.mobileapp.presenter.SignUpPresenter;
+import com.example.mobileapp.data.constract.SignUpConstract;
+import com.example.mobileapp.data.model.Account;
+import com.example.mobileapp.data.presenter.SignUpPresenter;
 import com.example.mobileapp.view.LoginActivity;
 
 import java.util.ArrayList;

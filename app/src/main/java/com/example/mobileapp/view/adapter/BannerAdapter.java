@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
-import com.example.mobileapp.model.Slider;
+import com.example.mobileapp.data.model.Slider;
 import com.example.mobileapp.R;
 
 import java.util.List;

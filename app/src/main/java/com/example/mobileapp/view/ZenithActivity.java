@@ -17,12 +17,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mobileapp.R;
-import com.example.mobileapp.constract.MainConstract;
+import com.example.mobileapp.data.constract.MainConstract;
 import com.example.mobileapp.view.fragment.AccountFragment;
 import com.example.mobileapp.view.fragment.SmartphoneFragment;
 import com.example.mobileapp.view.fragment.HomeFragment;
 import com.example.mobileapp.view.fragment.LaptopFragment;
-import com.example.mobileapp.presenter.MainPresenter;
+import com.example.mobileapp.data.presenter.MainPresenter;
 import com.example.mobileapp.utils.Utils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -71,6 +71,7 @@ public class ZenithActivity extends AppCompatActivity implements NavigationView.
         mIPresenter.isLoggedIn();
         if(isLogin == false){
             tvLogOut.setText("Login | Register");
+
         }
         tvLogOut.setOnClickListener(view->mIPresenter.eventLogout());
         mNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);

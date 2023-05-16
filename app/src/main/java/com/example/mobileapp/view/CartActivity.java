@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mobileapp.R;
 import com.example.mobileapp.view.adapter.CartAdapter;
-import com.example.mobileapp.constract.CartConstract;
+import com.example.mobileapp.data.constract.CartConstract;
 import com.example.mobileapp.view.fragment.BottomSheetFragment;
-import com.example.mobileapp.model.Cart;
-import com.example.mobileapp.model.Order;
-import com.example.mobileapp.presenter.CartPresenter;
+import com.example.mobileapp.data.model.Cart;
+import com.example.mobileapp.data.model.Order;
+import com.example.mobileapp.data.presenter.CartPresenter;
 import com.example.mobileapp.utils.Utils;
 
 import java.text.NumberFormat;

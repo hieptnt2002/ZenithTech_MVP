@@ -15,8 +15,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.mobileapp.R;
-import com.example.mobileapp.constract.SignInConstract;
-import com.example.mobileapp.presenter.SignInPresenter;
+import com.example.mobileapp.data.constract.SignInConstract;
+import com.example.mobileapp.data.presenter.SignInPresenter;
 import com.example.mobileapp.view.LoginActivity;
 
 public class SigninFragment extends Fragment implements SignInConstract.IView {

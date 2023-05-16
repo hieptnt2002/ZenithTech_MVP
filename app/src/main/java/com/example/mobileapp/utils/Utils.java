@@ -5,8 +5,8 @@ import static android.content.Context.MODE_PRIVATE;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.mobileapp.model.Account;
-import com.example.mobileapp.model.Cart;
+import com.example.mobileapp.data.model.Account;
+import com.example.mobileapp.data.model.Cart;
 import com.google.gson.Gson;
 
 import java.security.MessageDigest;

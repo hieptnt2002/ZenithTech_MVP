@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mobileapp.R;
-import com.example.mobileapp.constract.OrderInfoConstract;
-import com.example.mobileapp.model.OrderInfo;
-import com.example.mobileapp.presenter.OrderInfoPresenter;
+import com.example.mobileapp.data.constract.OrderInfoConstract;
+import com.example.mobileapp.data.model.OrderInfo;
+import com.example.mobileapp.data.presenter.OrderInfoPresenter;
 import com.example.mobileapp.view.adapter.OrderInfoAdapter;
 
 import java.util.List;

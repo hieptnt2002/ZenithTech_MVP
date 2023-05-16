@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.mobileapp.R;
-import com.example.mobileapp.model.Cart;
+import com.example.mobileapp.data.model.Cart;
 
 import java.text.NumberFormat;
 import java.util.List;

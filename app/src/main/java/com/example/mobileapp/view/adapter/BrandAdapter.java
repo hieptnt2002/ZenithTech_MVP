@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mobileapp.R;
-import com.example.mobileapp.model.BrandProduct;
+import com.example.mobileapp.data.model.BrandProduct;
 
 import java.util.List;
 

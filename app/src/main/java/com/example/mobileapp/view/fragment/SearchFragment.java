@@ -16,9 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mobileapp.R;
 import com.example.mobileapp.view.adapter.ProductAdapter;
-import com.example.mobileapp.constract.SearchConstract;
-import com.example.mobileapp.model.Product;
-import com.example.mobileapp.presenter.SearchPresenter;
+import com.example.mobileapp.data.constract.SearchConstract;
+import com.example.mobileapp.data.model.Product;
+import com.example.mobileapp.data.presenter.SearchPresenter;
 import com.example.mobileapp.utils.Utils;
 import com.example.mobileapp.view.ZenithActivity;
 

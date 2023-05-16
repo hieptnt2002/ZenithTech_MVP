@@ -13,9 +13,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mobileapp.model.Category;
+import com.example.mobileapp.data.model.Category;
 import com.example.mobileapp.R;
-import com.example.mobileapp.constract.OnItemClickListener;
+import com.example.mobileapp.data.constract.OnItemClickListener;
 
 import java.util.List;
 

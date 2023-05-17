@@ -25,6 +25,7 @@ import com.example.mobileapp.view.fragment.LaptopFragment;
 import com.example.mobileapp.data.presenter.MainPresenter;
 import com.example.mobileapp.utils.Utils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -42,6 +43,7 @@ public class ZenithActivity extends AppCompatActivity implements NavigationView.
     public MainConstract.IPresenter mIPresenter;
     boolean isLogin = false;
     public int index = 0;
+    FloatingActionButton btnCartBottom;
 
     @Override
     protected void onResume() {
@@ -54,26 +56,22 @@ public class ZenithActivity extends AppCompatActivity implements NavigationView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zenith);
         initGUI();
-        //lấy ngày tháng
-        LocalDate currentDate = LocalDate.now();
-        String formattedDate = currentDate.toString();
-        Toast.makeText(this, formattedDate, Toast.LENGTH_SHORT).show();
-        //
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mDrawerLayout.openDrawer(GravityCompat.START);
             }
         });
-       mIPresenter = new MainPresenter(this);
+        mIPresenter = new MainPresenter(this);
 
         mIPresenter.eventClickItemNavigation(0);
         mIPresenter.isLoggedIn();
-        if(isLogin == false){
+        if (isLogin == false) {
             tvLogOut.setText("Login | Register");
+            tvLogOut.setCompoundDrawablesRelativeWithIntrinsicBounds(null,null,null,null);
 
         }
-        tvLogOut.setOnClickListener(view->mIPresenter.eventLogout());
+        tvLogOut.setOnClickListener(view -> mIPresenter.eventLogout());
         mNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
         bottomNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
         mNavigationView.setNavigationItemSelectedListener(this);
@@ -95,14 +93,14 @@ public class ZenithActivity extends AppCompatActivity implements NavigationView.
         View view = mNavigationView.getHeaderView(0);
         tvUsername = view.findViewById(R.id.text_user);
         tvLogOut = findViewById(R.id.textView_logout);
+        btnCartBottom = findViewById(R.id.button_bottomCart);
+        btnCartBottom.setOnClickListener(view1 -> startActivity(new Intent(this, CartActivity.class)));
         lnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ZenithActivity.this,CartActivity.class));
+                startActivity(new Intent(ZenithActivity.this, CartActivity.class));
             }
         });
-
-
 
 
     }
@@ -156,7 +154,8 @@ public class ZenithActivity extends AppCompatActivity implements NavigationView.
                 bottomNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
                 break;
             case R.id.nav_smart:
-                index = 1;;
+                index = 1;
+                ;
                 bottomNavigationView.getMenu().findItem(R.id.nav_smart).setChecked(true);
                 break;
             case R.id.nav_lap:
@@ -179,29 +178,28 @@ public class ZenithActivity extends AppCompatActivity implements NavigationView.
     }
 
 
-
     @Override
     public void showFragmentHome() {
         HomeFragment homeFragment = new HomeFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,homeFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, homeFragment).commit();
     }
 
     @Override
     public void showFragmentSmartphone() {
         SmartphoneFragment smartphoneFragment = new SmartphoneFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,smartphoneFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, smartphoneFragment).commit();
     }
 
     @Override
     public void showFragmentLaptop() {
         LaptopFragment laptopFragment = new LaptopFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,laptopFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, laptopFragment).commit();
     }
 
     @Override
     public void showFragmentAccount() {
         AccountFragment accountFragment = new AccountFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,accountFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, accountFragment).commit();
     }
 
     @Override

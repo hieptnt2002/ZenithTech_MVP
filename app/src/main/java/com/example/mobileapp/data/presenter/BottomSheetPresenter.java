@@ -9,6 +9,7 @@ import com.example.mobileapp.data.model.Cart;
 import com.example.mobileapp.data.model.Order;
 import com.example.mobileapp.data.remote.RetrofitClient;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +23,9 @@ public class BottomSheetPresenter implements BottomSheetConstract.IPresenter {
 
     public BottomSheetPresenter(BottomSheetConstract.IView view) {
         mView = view;
-        apiService = RetrofitClient.getClient(Constants.SERVICE_API).create(ApiService.class);
+        apiService = RetrofitClient.getClient().create(ApiService.class);
     }
+
     @Override
     public void setDataOrder(Order mOrder) {
         mView.onSetDataToOrderView(mOrder);
@@ -36,6 +38,7 @@ public class BottomSheetPresenter implements BottomSheetConstract.IPresenter {
         mView.onSetSpinnerAdapter(list);
         mView.onUpdateOrderRecyclerViewHeight();
     }
+
     public void event(Order mOrder) {
         mView.onEventCancel();
         List<Cart> mCart = mOrder.getmList();
@@ -43,13 +46,17 @@ public class BottomSheetPresenter implements BottomSheetConstract.IPresenter {
     }
 
     @Override
-    public void upDataOrder(List<Cart> mList, int position) {
-        apiService.postCartData(mList.get(position).getImg(),
-                mList.get(position).getName(),
-                mList.get(position).getPrice() * mList.get(position).getQuantity()+"",
-                mList.get(position).getQuantity()+"",
-                "Chưa thanh toán",
-                mList.get(position).getAccount_id()+"").enqueue(new Callback<Cart>() {
+    public void upDataOrder(List<Cart> mList, int position, String receiver, String address, String phone) {
+        String img,nameProduct,price,quantity,status,account_id;
+        img = mList.get(position).getImg();
+        nameProduct =  mList.get(position).getName();
+        price = mList.get(position).getPrice() * mList.get(position).getQuantity() + "";
+        quantity = mList.get(position).getQuantity() + "";
+        status = "Chưa thanh toán";
+        account_id = mList.get(position).getAccount_id() + "";
+        LocalDate currentDate = LocalDate.now();
+        String formattedDate = currentDate.toString();
+        apiService.postCartData(img,nameProduct, price,quantity,status,account_id, receiver, address, phone,formattedDate).enqueue(new Callback<Cart>() {
             @Override
             public void onResponse(Call<Cart> call, Response<Cart> response) {
                 Log.d("API", "API up order successfully!");

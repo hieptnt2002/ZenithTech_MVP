@@ -18,6 +18,6 @@ public interface BottomSheetConstract {
     interface IPresenter{
         void setDataOrder(Order mOrder);
          void event(Order mOrder) ;
-         void upDataOrder(List<Cart> mList,int position);
+         void upDataOrder(List<Cart> mList,int position,String receiver,String address,String phone);
     }
 }

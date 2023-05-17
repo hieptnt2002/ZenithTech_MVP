@@ -42,8 +42,7 @@ public class AccountFragment extends Fragment implements AccountConstract.IView 
         tvGmail = view.findViewById(R.id.textView_gmailProfile);
         civImg = view.findViewById(R.id.circleImageView_profile);
         layoutOrder = view.findViewById(R.id.layout_order);
-        layoutIntroduce = view.findViewById(R.id.layout_introduce);
-        layoutVoucher = view.findViewById(R.id.layout_voucher);
+
         layoutOrder.setOnClickListener(view->
                 startActivity(new Intent(getContext(), OrderInfoActivity.class)));
     }

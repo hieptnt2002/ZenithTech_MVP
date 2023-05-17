@@ -13,17 +13,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SmartphonePresenter implements ProductConstract.IPresenter {
+public class LaptopPresenter implements ProductConstract.IPresenter {
     ProductConstract.IView mView;
     private ApiService apiService;
 
-    public SmartphonePresenter(ProductConstract.IView mVIew){
+    public LaptopPresenter(ProductConstract.IView mVIew){
         this.mView = mVIew;
         apiService = RetrofitClient.getClient().create(ApiService.class);
     }
     @Override
     public void getProductList() {
-        apiService.getSmartphone().enqueue(new Callback<List<Product>>() {
+        apiService.getLaptop().enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 List<Product> mList = response.body();
@@ -39,7 +39,7 @@ public class SmartphonePresenter implements ProductConstract.IPresenter {
 
     @Override
     public void getSliderList() {
-        apiService.getSliderSmart().enqueue(new Callback<List<Slider>>() {
+        apiService.getSliderLap().enqueue(new Callback<List<Slider>>() {
             @Override
             public void onResponse(Call<List<Slider>> call, Response<List<Slider>> response) {
                 List<Slider> sliderList = response.body();

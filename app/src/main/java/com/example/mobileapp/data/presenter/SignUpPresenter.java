@@ -24,7 +24,7 @@ public class SignUpPresenter implements SignUpConstract.IPresenter {
 
     public SignUpPresenter(SignUpConstract.IView mView) {
         this.mView = mView;
-        apiService = RetrofitClient.getClient(Constants.SERVICE_API).create(ApiService.class);
+        apiService = RetrofitClient.getClient().create(ApiService.class);
     }
 
     @Override
@@ -61,8 +61,9 @@ public class SignUpPresenter implements SignUpConstract.IPresenter {
                         mView.showSuccessMessage("Đăng ký thành công!");
                     }
 
-                    mView.hideProgress();
+
                 }
+                mView.hideProgress();
             }
         }, 3000);
 

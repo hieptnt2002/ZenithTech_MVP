@@ -28,7 +28,7 @@ public class ProductDetailsPresenter implements ProductDetailsConstract.IPresent
 
     public ProductDetailsPresenter(ProductDetailsConstract.IView mView) {
         this.mView = mView;
-        apiService = RetrofitClient.getClient(Constants.SERVICE_API).create(ApiService.class);
+        apiService = RetrofitClient.getClient().create(ApiService.class);
     }
 
     @Override

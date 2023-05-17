@@ -32,6 +32,8 @@ public interface ApiService {
     Call<List<Product>> getLaptop();
     @GET("slider_smart.php")
     Call<List<Slider>> getSliderSmart();
+    @GET("slider_laptop.php")
+    Call<List<Slider>> getSliderLap();
 
 
     @POST("find_result.php")
@@ -43,14 +45,18 @@ public interface ApiService {
     @POST("images_phone.php")
     @FormUrlEncoded
     Call<List<Slider>> getImagesLap(@Field("id") String id);
-    @POST("iiinsert_order.php")
+    @POST("order.php")
     @FormUrlEncoded
     Call<Cart> postCartData(@Field("img") String img,
                             @Field("name") String name,
                             @Field("price") String price,
                             @Field("quantity") String quantity,
                             @Field("trangthai") String trangthai,
-                            @Field("account_id") String account_id);
+                            @Field("account_id") String account_id,
+                            @Field("receiver") String receiver,
+                            @Field("address") String address,
+                            @Field("phone") String phone,
+                            @Field("date") String date);
 
     @POST("show_order.php")
     @FormUrlEncoded

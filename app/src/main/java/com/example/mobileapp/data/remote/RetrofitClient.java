@@ -5,9 +5,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-    public static Retrofit getClient(String url){
+    public static Retrofit getClient(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl("https://zenithtechshop.000webhostapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit;

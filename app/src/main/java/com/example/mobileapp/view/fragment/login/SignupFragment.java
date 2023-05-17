@@ -48,7 +48,7 @@ public class SignupFragment extends Fragment implements SignUpConstract.IView {
                     name = edtName.getText().toString();
                     email = edtEmail.getText().toString();
                     pass = edtPass.getText().toString();
-                    mPresenter.register(name, pass, email, accountList);
+                    mPresenter.register(name, pass, email, accountList,loginMobileApp);
                 }
 
             }

@@ -39,11 +39,12 @@
 
           <TextView
               android:id="@+id/textView_gmailProfile"
-              android:layout_width="wrap_content"
+              android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="Good Morning"
               android:textColor="#FEDD06"
-              android:textSize="36sp"
+              android:textAlignment="center"
+              android:textSize="20sp"
               android:textStyle="bold"
               app:layout_constraintEnd_toEndOf="@+id/textView_nameProfile"
               app:layout_constraintStart_toStartOf="@+id/textView_nameProfile"
@@ -104,7 +105,7 @@
 
                               android:layout_width="match_parent"
                               android:layout_height="wrap_content"
-                              android:text="Cart"
+                              android:text="Order"
                               android:textAlignment="center"
                               android:textColor="#34346E"
                               android:textSize="18sp" />

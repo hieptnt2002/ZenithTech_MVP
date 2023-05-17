@@ -207,6 +207,16 @@ public class HomeFragment extends Fragment implements  HomeConstract.IView {
         BrandAdapter mAdapter = new BrandAdapter(mList);
         rvFilter_Smartphone.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
+        mAdapter.setOnClickSearchBrand(new BrandAdapter.OnClickSearchBrand() {
+            @Override
+            public void onClick(String name) {
+                Bundle bundle = new Bundle();
+                bundle.putString("name", name);
+                SearchFragment searchFragment = new SearchFragment();
+                searchFragment.setArguments(bundle);
+                replaceFragment(searchFragment);
+            }
+        });
     }
 
     @Override
@@ -216,6 +226,16 @@ public class HomeFragment extends Fragment implements  HomeConstract.IView {
         BrandAdapter mAdapter = new BrandAdapter(mList);
         rvFilter_Laptop.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
+        mAdapter.setOnClickSearchBrand(new BrandAdapter.OnClickSearchBrand() {
+            @Override
+            public void onClick(String name) {
+                Bundle bundle = new Bundle();
+                bundle.putString("name", name);
+                SearchFragment searchFragment = new SearchFragment();
+                searchFragment.setArguments(bundle);
+                replaceFragment(searchFragment);
+            }
+        });
     }
 
     @Override

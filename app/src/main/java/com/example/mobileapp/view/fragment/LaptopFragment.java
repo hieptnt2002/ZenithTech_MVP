@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.mobileapp.R;
+import com.example.mobileapp.data.presenter.LaptopPresenter;
 import com.example.mobileapp.view.adapter.BannerChildAdapter;
 import com.example.mobileapp.view.adapter.ProductAdapter;
 import com.example.mobileapp.data.constract.ProductConstract;
@@ -57,7 +58,7 @@ public class LaptopFragment extends Fragment implements ProductConstract.IView {
         initGUI();
         progressBar.setVisibility(View.VISIBLE);
 
-        ProductConstract.IPresenter mPresenter = new SmartphonePresenter(this);
+       LaptopPresenter mPresenter = new LaptopPresenter(this);
         mPresenter.getProductList();
         mPresenter.getSliderList();
         eventFilter();

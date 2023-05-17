@@ -29,7 +29,6 @@ import com.android.volley.toolbox.Volley;
 import com.example.mobileapp.R;
 import com.example.mobileapp.view.CartActivity;
 import com.example.mobileapp.view.adapter.OrderAdapter;
-import com.example.mobileapp.utils.constants.Constants;
 import com.example.mobileapp.data.constract.BottomSheetConstract;
 import com.example.mobileapp.data.model.Cart;
 import com.example.mobileapp.data.model.Order;

@@ -3,12 +3,12 @@ package com.example.mobileapp.data.presenter;
 import android.os.Handler;
 import android.util.Patterns;
 
-import com.example.mobileapp.utils.constants.Constants;
 import com.example.mobileapp.data.constract.ApiService;
 import com.example.mobileapp.data.constract.SignUpConstract;
 import com.example.mobileapp.data.model.Account;
 import com.example.mobileapp.data.remote.RetrofitClient;
 import com.example.mobileapp.utils.Utils;
+import com.example.mobileapp.view.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,16 +28,18 @@ public class SignUpPresenter implements SignUpConstract.IPresenter {
     }
 
     @Override
-    public void register(String username, String password, String email, List<Account> mList) {
+    public void register(String username, String password, String email, List<Account> mList, LoginActivity activity) {
         mView.showProgress();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 if (username.isEmpty() || password.isEmpty() || email.isEmpty()) {
                     mView.showErrorMessage("Không được để trống dữ liệu!");
+                    return;
                 } else {
                     if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                         mView.showErrorMessage("Địa chỉ email không hợp lệ!!!");
+                        return;
                     } else {
                         for (int i = 0; i < mList.size(); i++) {
                             if (mList.get(i).getName().equals(username) || mList.get(i).getEmail().equals(email)) {
@@ -59,6 +61,7 @@ public class SignUpPresenter implements SignUpConstract.IPresenter {
                             }
                         });
                         mView.showSuccessMessage("Đăng ký thành công!");
+                        activity.viewPager2.setCurrentItem(1);
                     }
 
 

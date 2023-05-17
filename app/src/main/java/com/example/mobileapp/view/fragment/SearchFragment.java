@@ -63,7 +63,7 @@ public class SearchFragment extends Fragment implements SearchConstract.IView {
         llHighFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                findAdapter.filterPriceProductHigh();
+               if(findAdapter != null) findAdapter.filterPriceProductHigh();
                 llHighFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.background_filter_click));
                 llLowFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_filter));
                 llPercentFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_filter));
@@ -72,7 +72,7 @@ public class SearchFragment extends Fragment implements SearchConstract.IView {
         llLowFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                findAdapter.filterPriceProductLow();
+                if(findAdapter != null) findAdapter.filterPriceProductLow();
                 llHighFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_filter));
                 llLowFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.background_filter_click));
                 llPercentFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_filter));
@@ -82,7 +82,7 @@ public class SearchFragment extends Fragment implements SearchConstract.IView {
         llPercentFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                findAdapter.filterPriceProductPercent();
+                if(findAdapter != null) findAdapter.filterPriceProductPercent();
                 llHighFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_filter));
                 llLowFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_filter));
                 llPercentFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.background_filter_click));

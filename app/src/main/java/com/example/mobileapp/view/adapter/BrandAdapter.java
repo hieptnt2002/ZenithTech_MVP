@@ -16,6 +16,13 @@ import java.util.List;
 public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.ViewHolder> {
 
     List<BrandProduct> mList;
+    public OnClickSearchBrand onClickSearchBrand;
+    public interface OnClickSearchBrand{
+        void onClick(String name);
+    }
+    public void setOnClickSearchBrand(OnClickSearchBrand mListener){
+        onClickSearchBrand = mListener;
+    }
 
     public BrandAdapter(List<BrandProduct> mList) {
 
@@ -32,6 +39,7 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull BrandAdapter.ViewHolder holder, int position) {
         holder.mTextView.setText(mList.get(position).getTen_thuonghieu());
+        holder.mTextView.setOnClickListener(view->onClickSearchBrand.onClick(mList.get(position).getTen_thuonghieu()));
     }
 
     @Override
@@ -44,6 +52,7 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.ViewHolder> 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mTextView = itemView.findViewById(R.id.tv_filter);
+
         }
     }
 }

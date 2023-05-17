@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mobileapp.utils.constants.Constants;
+
 import com.example.mobileapp.data.constract.ApiService;
 import com.example.mobileapp.data.constract.HomeConstract;
 import com.example.mobileapp.data.model.BrandProduct;

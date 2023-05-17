@@ -1,6 +1,5 @@
 package com.example.mobileapp.data.presenter;
 
-import com.example.mobileapp.utils.constants.Constants;
 import com.example.mobileapp.data.constract.ApiService;
 import com.example.mobileapp.data.constract.ProductConstract;
 import com.example.mobileapp.data.model.Product;

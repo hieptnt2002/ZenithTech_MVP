@@ -2,7 +2,6 @@ package com.example.mobileapp.data.presenter;
 
 import android.util.Log;
 
-import com.example.mobileapp.utils.constants.Constants;
 import com.example.mobileapp.data.constract.ApiService;
 import com.example.mobileapp.data.constract.BottomSheetConstract;
 import com.example.mobileapp.data.model.Cart;

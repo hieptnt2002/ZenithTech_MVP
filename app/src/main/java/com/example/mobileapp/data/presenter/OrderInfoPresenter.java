@@ -3,7 +3,7 @@ package com.example.mobileapp.data.presenter;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.mobileapp.utils.constants.Constants;
+
 import com.example.mobileapp.data.constract.ApiService;
 import com.example.mobileapp.data.constract.OrderInfoConstract;
 import com.example.mobileapp.data.model.Account;

@@ -29,7 +29,7 @@ public class HomePresenter implements HomeConstract.IPresenter {
 
     public HomePresenter(HomeConstract.IView mView) {
         this.mView = mView;
-        apiService  = RetrofitClient.getClient(Constants.SERVICE_API).create(ApiService.class);
+        apiService  = RetrofitClient.getClient().create(ApiService.class);
 
     }
 

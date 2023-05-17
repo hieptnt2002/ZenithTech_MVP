@@ -77,8 +77,9 @@ public class SmartphoneFragment extends Fragment implements ProductConstract.IVi
         progressBar = view.findViewById(R.id.load_product);
 
     }
-    void search(){
-        ArrayAdapter suggestAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,Utils.suggestSearchList);
+
+    void search() {
+        ArrayAdapter suggestAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, Utils.suggestSearchList);
         inputSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -89,7 +90,9 @@ public class SmartphoneFragment extends Fragment implements ProductConstract.IVi
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 inputLayout.setHintEnabled(false);
                 inputSearch.setAdapter(suggestAdapter);
-                smartAdapter.filterNameProduct(inputSearch.getText().toString());
+                if(smartAdapter != null){
+                    smartAdapter.filterNameProduct(inputSearch.getText().toString());
+                }
             }
 
             @Override
@@ -100,8 +103,8 @@ public class SmartphoneFragment extends Fragment implements ProductConstract.IVi
         inputSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if(actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE
-                        || event.getAction() == KeyEvent.ACTION_DOWN || event.getAction() == KeyEvent.KEYCODE_ENTER){
+                if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE
+                        || event.getAction() == KeyEvent.ACTION_DOWN || event.getAction() == KeyEvent.KEYCODE_ENTER) {
 
                     Bundle bundle = new Bundle();
                     bundle.putString("name", String.valueOf(inputSearch.getText()));
@@ -115,36 +118,40 @@ public class SmartphoneFragment extends Fragment implements ProductConstract.IVi
             }
         });
     }
+
     public void replaceFragment(Fragment fragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.content_frame, fragment);
         transaction.commit();
     }
+
     @Override
     public void setDataToRecyclerViewProduct(List<Product> mList) {
         rvSmartphone.setHasFixedSize(true);
         rvSmartphone.setLayoutManager(new GridLayoutManager(getContext(), 2));
         rvSmartphone.setNestedScrollingEnabled(false);
-        smartAdapter = new ProductAdapter(mList,getContext());
+        smartAdapter = new ProductAdapter(mList, getContext());
         rvSmartphone.setAdapter(smartAdapter);
         progressBar.setVisibility(View.GONE);
         smartAdapter.notifyDataSetChanged();
-        //set chieu dai recycleview smartphone
-        int itemHeight = getResources().getDimensionPixelSize(R.dimen.item_height_product); // chiều cao của một item
-        int numItems = 0 ;
-        if(smartAdapter.getItemCount() % 2 == 0){
-            numItems = smartAdapter.getItemCount() / 2; // số lượng item trong RecyclerView
-        }
-        else  numItems = (smartAdapter.getItemCount() + 1) / 2; // số lượng item trong RecyclerView
+        if (smartAdapter != null) {
+            //set chieu dai recycleview smartphone
+            int itemHeight = getResources().getDimensionPixelSize(R.dimen.item_height_product); // chiều cao của một item
+            int numItems = 0;
+            if (smartAdapter.getItemCount() % 2 == 0) {
+                numItems = smartAdapter.getItemCount() / 2; // số lượng item trong RecyclerView
+            } else
+                numItems = (smartAdapter.getItemCount() + 1) / 2; // số lượng item trong RecyclerView
 
-        int totalHeight = itemHeight * numItems; // tổng chiều cao của tất cả các item trong RecyclerView
-        ViewGroup.LayoutParams params = rvSmartphone.getLayoutParams();
-        params.height = totalHeight;
-        rvSmartphone.setLayoutParams(params);//
+            int totalHeight = itemHeight * numItems; // tổng chiều cao của tất cả các item trong RecyclerView
+            ViewGroup.LayoutParams params = rvSmartphone.getLayoutParams();
+            params.height = totalHeight;
+            rvSmartphone.setLayoutParams(params);//
+        }
         smartAdapter.setOnClickAddToCart(new ProductAdapter.OnClickAddCartListener() {
             @Override
             public void onClickAddToCart() {
-                if(Utils.listCart.size() !=0){
+                if (Utils.listCart.size() != 0) {
                     TextView tvCart = getActivity().findViewById(R.id.num_cart);
                     tvCart.setText(String.valueOf(Utils.listCart.size()));
                 }
@@ -167,7 +174,7 @@ public class SmartphoneFragment extends Fragment implements ProductConstract.IVi
         llHighFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                smartAdapter.filterPriceProductHigh();
+               if(smartAdapter != null) smartAdapter.filterPriceProductHigh();
                 llHighFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.background_filter_click));
                 llLowFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_filter));
                 llPercentFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_filter));
@@ -176,7 +183,7 @@ public class SmartphoneFragment extends Fragment implements ProductConstract.IVi
         llLowFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                smartAdapter.filterPriceProductLow();
+                if(smartAdapter != null) smartAdapter.filterPriceProductLow();
                 llHighFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_filter));
                 llLowFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.background_filter_click));
                 llPercentFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_filter));
@@ -186,7 +193,7 @@ public class SmartphoneFragment extends Fragment implements ProductConstract.IVi
         llPercentFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                smartAdapter.filterPriceProductPercent();
+                if(smartAdapter != null) smartAdapter.filterPriceProductPercent();
                 llHighFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_filter));
                 llLowFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_filter));
                 llPercentFilter.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.background_filter_click));

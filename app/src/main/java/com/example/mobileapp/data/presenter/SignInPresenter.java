@@ -27,7 +27,7 @@ public class SignInPresenter implements SignInConstract.IPresenter {
 
     public SignInPresenter(SignInConstract.IView mView) {
         this.mView = mView;
-        apiService = RetrofitClient.getClient(Constants.SERVICE_API).create(ApiService.class);
+        apiService = RetrofitClient.getClient().create(ApiService.class);
     }
 
     @Override

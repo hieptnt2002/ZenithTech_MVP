@@ -108,34 +108,6 @@ public class BottomSheetFragment extends BottomSheetDialogFragment implements Bo
         cartActivity = (CartActivity) getActivity();
     }
 
-    private void upApiOrder(List<Cart> mCart, int i) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.SERVICE_API, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        }) {
-            @Nullable
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("img", mCart.get(i).getImg());
-                params.put("name", mCart.get(i).getName());
-                params.put("price", mCart.get(i).getPrice() * mCart.get(i).getQuantity() + "");
-                params.put("quantity", mCart.get(i).getQuantity() + "");
-                params.put("trangthai", "Chưa thanh toán");
-                params.put("account_id", mCart.get(i).getAccount_id() + "");
-                return params;
-            }
-        };
-        Volley.newRequestQueue(getContext()).add(stringRequest);
-    }
-
     @Override
     public void onSetDataToOrderView(Order mOrder) {
         if (mOrder == null) {
@@ -185,25 +157,25 @@ public class BottomSheetFragment extends BottomSheetDialogFragment implements Bo
             layoutOrder.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String name, sdt, address, product, totalPay, method;
+                    String name, phone, address, product, totalPay, method;
                     name = edtName.getText().toString();
-                    sdt = edtSDT.getText().toString();
+                    phone = edtSDT.getText().toString();
                     address = edtAddress.getText().toString();
                     totalPay = tvTotalPay.getText().toString();
                     method = spnMethodPay.getSelectedItem().toString();
 
-                    if (name.isEmpty() || sdt.isEmpty() || address.isEmpty() || sdt.length() < 10) {
+                    if (name.isEmpty() || phone.isEmpty() || address.isEmpty() || phone.length() < 10) {
                         Toast.makeText(getContext(), "Vui lòng nhập đầy đủ thông tin đặt hàng!", Toast.LENGTH_SHORT).show();
                     } else {
                         // up len api
                         product = "";
                         for (int i = 0; i < mCart.size(); i++) {
                             product += mCart.get(i).getName() + " x " + mCart.get(i).getQuantity() + "\n";
-                            mPresenter.upDataOrder(mCart, i);
+                            mPresenter.upDataOrder(mCart, i,name,address,phone);
                         }
                         // hiện thị bill
 
-                        onShowOrderSuccessDialog(product, name, sdt, address, method, totalPay);
+                        onShowOrderSuccessDialog(product, name, phone, address, method, totalPay);
                         Utils.saveCart(getContext());
                     }
                 }
@@ -212,13 +184,13 @@ public class BottomSheetFragment extends BottomSheetDialogFragment implements Bo
     }
 
     @Override
-    public void onShowOrderSuccessDialog(String product, String name, String sdt, String address, String method, String totalPay) {
+    public void onShowOrderSuccessDialog(String product, String name, String phone, String address, String method, String totalPay) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Đặt hàng thành công");
         builder.setIcon(R.drawable.bill);
         builder.setMessage("Gồm có các sản phẩm: \n" + product +
                 "\nTên người nhận: " + name +
-                "\n Số điện thoại: " + sdt +
+                "\n Số điện thoại: " + phone +
                 "\n Địa chỉ người nhận: " + address +
                 "\n Hình thức thanh toán: " + method +
                 "\nTổng thanh toán của bạn là: " + totalPay);
